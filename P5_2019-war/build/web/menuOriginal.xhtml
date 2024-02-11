@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+        <style type="text/css">
+            body {margin-bottom: 10%;}
+        </style>
+    </h:head>
+    <h:body>
+          <h:form>
+            <p:menubar style="font-family: Ubuntu-Regular; color: #fff; background-color:  #4f5d73; background: #4f5d73;">
+                <p:menuitem style="color: #fff; background-color:  #4f5d73; background: #4f5d73; font-family: Ubuntu-Regular; font-weight: bold; " value="ACÚSTICO" action="home"/>
+                <p:menuitem style="color: #fff; background-color:  #4f5d73; background: #4f5d73;" value="Home" action="home"/>
+                <p:submenu style="color: #fff; background-color:  #4f5d73; background: #4f5d73;"  label="Cliente" rendered="#{permissaoBean.validar('FC00')}">
+                    <p:menuitem style="width: 100%; color: #fff; background-color:  #4f5d73; background: #4f5d73;" value="Cadastrar"   action="cliente_cadastro"  ajax="false" rendered="#{permissaoBean.validar('FC01')}"></p:menuitem>
+                    <p:menuitem style="width: 100%; color: #fff; background-color:  #4f5d73; background: #4f5d73;" value="Listar"  action="cliente_lista" ajax="false" rendered="#{permissaoBean.validar('FC02')}"></p:menuitem>
+                </p:submenu>
+                <p:submenu style="color: #fff; background-color:  #4f5d73; background: #4f5d73;"  label="Armazém" rendered="#{permissaoBean.validar('FA00')}">
+                    <p:menuitem style="width: 100%; color: #fff; background-color:  #4f5d73; background: #4f5d73;" value="Cadastrar Produto" action="produto_cadastro" ajax="false" rendered="#{permissaoBean.validar('FA01')}" ></p:menuitem>
+                    <p:menuitem style="width: 100%; color: #fff; background-color:  #4f5d73; background: #4f5d73;" value="Listar Produtos" action="stock_produto_lista" ajax="false" rendered="#{permissaoBean.validar('FA04')}"></p:menuitem>   
+                    <p:menuitem style="width: 100%; color: #fff; background-color:  #4f5d73; background: #4f5d73;" value="Definir Quantidade Máxima" action="produto_definir_quantidade_maxima_stock" ajax="false" rendered="#{permissaoBean.validar('FA002')}"></p:menuitem>
+                    <p:menuitem style="width: 100%; color: #fff; background-color:  #4f5d73; background: #4f5d73;" value="Dar Entrada de Produto" action="stock_entrada_produto" ajax="false" rendered="#{permissaoBean.validar('FA03')}"></p:menuitem>
+                    <p:menuitem style="width: 100%; color: #fff; background-color:  #4f5d73; background: #4f5d73;" value="Definir Preço de Produto" ajax="false" action="produto_definir_preco" rendered="#{permissaoBean.validar('FA05')}"></p:menuitem>
+                </p:submenu>
+                <p:submenu style="color: #fff; background-color:  #4f5d73; background: #4f5d73;"  label="Montra" rendered="#{permissaoBean.validar('FM00')}">
+                    <p:menuitem style="width: 100%; color: #fff; background-color:  #4f5d73; background: #4f5d73;" value="Colocar Produto" action = "montrar_colocar_produto" ajax="false" rendered = "#{permissaoBean.validar('FM01')}" />
+                    <p:menuitem style="width: 100%; color: #fff; background-color:  #4f5d73; background: #4f5d73;" value="Visualizar" action = "montra_visualizar" ajax="false" rendered = "#{permissaoBean.validar('FM04')}" />
+                </p:submenu>
+                <p:submenu style="color: #fff; background-color:  #4f5d73; background: #4f5d73;"  label="Funcionário" rendered="#{permissaoBean.validar('FF00')}" >
+                    <p:menuitem style="width: 100%; color: #fff; background-color:  #4f5d73; background: #4f5d73;" value="Cadastrar" action="funcionario_cadastro" ajax="false" rendered="#{permissaoBean.validar('FF01')}"></p:menuitem>
+                    <p:menuitem style="width: 100%; color: #fff; background-color:  #4f5d73; background: #4f5d73;" value="Listar" action="funcionario_lista" ajax="false" rendered="#{permissaoBean.validar('FF02')}"></p:menuitem>
+                </p:submenu>
+                <p:submenu style="color: #fff; background-color:  #4f5d73; background: #4f5d73;"  label="Fornecedor" >
+                    <p:menuitem style="width: 100%; color: #fff; background-color:  #4f5d73; background: #4f5d73;" value="Cadastrar" action="fornecedor_cadastro.xhtml" ajax="false"></p:menuitem>
+                    <p:menuitem style="width: 100%; color: #fff; background-color:  #4f5d73; background: #4f5d73;" value="Listar" action="fornecedor_lista.xhtml" ajax="false"></p:menuitem>
+                </p:submenu>
+                <p:submenu style="color: #fff; background-color:  #4f5d73; background: #4f5d73;"  label="Balancetes" rendered="#{permissaoBean.validar('FB00')}">
+                    <p:menuitem style="width: 100%; color: #fff; background-color:  #4f5d73; background: #4f5d73;" value="Diário" action="balancete_diario.xhtml" ajax="false"></p:menuitem>
+                    <p:menuitem style="width: 100%; color: #fff; background-color:  #4f5d73; background: #4f5d73;" value="Mensal" action="balancete_mensal.xhtml" ajax="false"></p:menuitem>
+                    <p:menuitem style="width: 100%; color: #fff; background-color:  #4f5d73; background: #4f5d73;" value="Intervalo de Tempo" action="balancete_intervalo.xhtml" ajax="false"></p:menuitem>
+                    <p:menuitem style="width: 100%; color: #fff; background-color:  #4f5d73; background: #4f5d73;" value="Tipo de Produto" action="balancete_produto.xhtml" ajax="false"></p:menuitem>
+                    <p:menuitem style="width: 100%; color: #fff; background-color:  #4f5d73; background: #4f5d73;" value="Produtos em Ruptura" action="balancete_ruptura_lista.xhtml" ajax="false"></p:menuitem>
+                    <p:menuitem style="width: 100%; color: #fff; background-color:  #4f5d73; background: #4f5d73;" value="Produtos em Quase Ruptura" action="balancete_quase_lista.xhtml" ajax="false"></p:menuitem>
+                    <p:menuitem style="width: 100%; color: #fff; background-color:  #4f5d73; background: #4f5d73;" value="Produtos em Pré-Ruptura" action="balancete_pre_lista.xhtml" ajax="false"></p:menuitem>
+                </p:submenu>
+                <p:submenu style="color: #fff; background-color:  #4f5d73; background: #4f5d73;" label="Tabelas" rendered="#{permissaoBean.validar('FT00')}">
+                    <p:menuitem style="width: 100%; color: #fff; background-color:  #4f5d73; background: #4f5d73;" value="Países" action="#{carregarTabelasBean.carregarTabelaPais()}" ajax= "false" />
+                    <p:menuitem style="width: 100%; color: #fff; background-color:  #4f5d73; background: #4f5d73;" value="Províncias" action="#{carregarTabelasBean.carregarTabelaProvincia()}" ajax = "false" />
+                    <p:menuitem style="width: 100%; color: #fff; background-color:  #4f5d73; background: #4f5d73;" value="Municípios" action="#{carregarTabelasBean.carregarTabelaMunicipio()}" ajax = "false" />
+                    <p:menuitem style="width: 100%; color: #fff; background-color:  #4f5d73; background: #4f5d73;" value="Comunas" action="#{carregarTabelasBean.carregarTabelaComunas()}" ajax = "false" />
+                    <p:menuitem style="width: 100%; color: #fff; background-color:  #4f5d73; background: #4f5d73;" value="Categoria 1" action="#" />
+                    <p:menuitem style="width: 100%; color: #fff; background-color:  #4f5d73; background: #4f5d73;" value="Categoria 2" action="#" />
+                    <p:menuitem style="width: 100%; color: #fff; background-color:  #4f5d73; background: #4f5d73;" value="Categoria 3" action="#" />
+                </p:submenu>
+                <p:menuitem style="color: #fff; background-color:  #4f5d73; background: #4f5d73;" value="Carrinho" action="carrinho_compra" ajax="false" rendered="#{permissaoBean.validar('FC')}" />
+                <p:submenu label="Defesa">
+                    <p:menuitem style="width: 100%; color: #fff; background-color:  #4f5d73; background: #4f5d73;" value="Consulta" action="defesa1" ajax="false" />
+                </p:submenu>
+                <p:menuitem style="color: #fff; background-color:  #3a3a3a; background: #3a3a3a; font-weight: bold; float: right;" value="Sair" action="#{autenticacaoBean.registrarSaida()}" ajax="false" />
+            </p:menubar>
+        </h:form>
+    </h:body>
+</html>

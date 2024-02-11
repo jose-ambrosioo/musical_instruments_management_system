@@ -1,0 +1,111 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Países</title>
+    </h:head>
+    <h:body>
+      <ui:composition template="template.xhtml">
+            <ui:define name="content">
+                <center>
+                    <h:form id="frmListagemProdutos">
+                        <p:panelGrid id="panelListagem" columns="7" >
+                            <f:facet name="header">
+                                <p:row>
+                                    <p:column colspan="8">Lista de Províncias</p:column>
+                                </p:row>
+                            </f:facet>
+                            
+                            <h:dataTable id="tblProdutos"  value =""   var="item" border ="1"
+                                         cellspacing="2" >
+
+                                <p:column headerText="Model">
+                                    <f:facet name="header">Nome</f:facet>
+                                    <h:outputText value="Luanda" escape="false"/>
+                                    <br/>
+                                    <h:outputText value="Bengo" escape="false"/>
+                                    <br/>
+                                    <h:outputText value="Benguela" escape="false"/>
+                                    <br/>
+                                    <h:outputText value="Bié" escape="false"/>
+                                    <br/>
+                                    <h:outputText value="Cabinda" escape="false"/>
+                                    <br/>
+                                    <h:outputText value="Cunene" escape="false"/>
+                                    <br/>
+                                    <h:outputText value="Kuando-Kubango" escape="false"/>
+                                    <br/>
+                                    <h:outputText value="Kwanza-Norte" escape="false"/>
+                                    <br/>
+                                    <h:outputText value="Kwanza-Sul" escape="false"/>
+                                    <br/>
+                                    <h:outputText value="Huambo" escape="false"/>
+                                    <br/>
+                                    <h:outputText value="Huíla" escape="false"/>
+                                    <br/>
+                                    <h:outputText value="Lunda-Norte" escape="false"/>
+                                    <br/>
+                                    <h:outputText value="Lunda-Sul" escape="false"/>
+                                    <br/>
+                                    <h:outputText value="Malanje" escape="false"/>
+                                    <br/>
+                                    <h:outputText value="Moxico" escape="false"/>
+                                    <br/>
+                                    <h:outputText value="Namibe" escape="false"/>
+                                    <br/>
+                                    <h:outputText value="Uíge" escape="false"/>
+                                    <br/>
+                                    <h:outputText value="Zaire" escape="false"/>
+                                    <br/>
+                                </p:column>
+                                <p:column headerText="Model">
+                                    <f:facet name="header">País</f:facet>
+                                    <h:outputText value="Angola" escape="false"/>
+                                    <br/>
+                                    <h:outputText value="Angola" escape="false"/>
+                                    <br/>
+                                    <h:outputText value="Angola" escape="false"/>
+                                    <br/>
+                                    <h:outputText value="Angola" escape="false"/>
+                                    <br/>
+                                    <h:outputText value="Angola" escape="false"/>
+                                    <br/>
+                                    <h:outputText value="Angola" escape="false"/>
+                                    <br/>
+                                    <h:outputText value="Angola" escape="false"/>
+                                    <br/>
+                                    <h:outputText value="Angola" escape="false"/>
+                                    <br/>
+                                    <h:outputText value="Angola" escape="false"/>
+                                    <br/>
+                                    <h:outputText value="Angola" escape="false"/>
+                                    <br/>
+                                    <h:outputText value="Angola" escape="false"/>
+                                    <br/>
+                                    <h:outputText value="Angola" escape="false"/>
+                                    <br/>
+                                    <h:outputText value="Angola" escape="false"/>
+                                    <br/>
+                                    <h:outputText value="Angola" escape="false"/>
+                                    <br/>
+                                    <h:outputText value="Angola" escape="false"/>
+                                    <br/>
+                                    <h:outputText value="Angola" escape="false"/>
+                                    <br/>
+                                    <h:outputText value="Angola" escape="false"/>
+                                    <br/>
+                                    <h:outputText value="Angola" escape="false"/>
+                                    <br/>
+                                </p:column> 
+                            </h:dataTable>
+                        </p:panelGrid>
+                    </h:form>
+                </center>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>

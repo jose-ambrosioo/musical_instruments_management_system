@@ -1,0 +1,113 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Fornecedores</title>
+        <style type="text/css">
+            .ui-widget{ margin-top:10%; }
+        </style>
+    </h:head>
+    <h:body>
+        <ui:composition template="template.xhtml">
+            <ui:define name="content">
+                <center>
+                    <h:form id="frmListaGemCliente">
+                        <p:panelGrid id="panelListagem" columns="7" >
+                                <f:facet name="header">
+                                    <p:row>
+                                        <p:column colspan="8">Lista de Fornecedores</p:column>
+                                    </p:row>
+                                </f:facet>
+                            <h:dataTable id="tblClientes"  value =""   var="item" border ="1"
+                                         cellspacing="2"   >
+                                
+                                <p:column headerText="Nome">
+                                    <f:facet name="header">Nome</f:facet>
+                                    <h:outputText value="Yamaha" />
+                                    <br/>
+                                    <h:outputText value="Korg" />
+                                    <br/>
+                                    <h:outputText value="Stagg" />
+                                    <br/>
+                                    <h:outputText value="Steinway and Sons‎" />
+                                    <br/>
+                                    <h:outputText value="Roland" />
+                                    <br/>
+                                    <h:outputText value="Crafter" />
+                                    <br/>
+                                    <h:outputText value="Strinberg" />
+                                    <br/>
+                                    <h:outputText value="Cecilio" />
+                                    <br/>
+                                    <h:outputText value="Biaomy" />
+                                    <br/>
+                                    <h:outputText value="Glory" />
+                                    <br/>
+                                    <h:outputText value="Mendini" />
+                                    <br/>
+                                    <h:outputText value="Fender" />
+                                    <br/>
+                                    <h:outputText value="Hofner" />
+                                    <br/>
+                                </p:column> 
+                                                              
+                                <p:column headerText="Operacao" >
+                                    <f:facet name="header">Operação</f:facet>
+                                    <p:commandButton value="Excluir" icon="ui-icon-trash" styleClass="ui-button" 
+                                                     action = "#{clienteListaBean.excluirClientes()}" update="frmListaGemCliente" />
+                                    <p:commandButton value="Alterar" icon="ui-icon-comment" styleClass="ui-button" />
+                                    <br/>
+                                    <p:commandButton value="Excluir" icon="ui-icon-trash" styleClass="ui-button" 
+                                                     action = "#{clienteListaBean.excluirClientes()}" update="frmListaGemCliente" />
+                                    <p:commandButton value="Alterar" icon="ui-icon-comment" styleClass="ui-button" />
+                                    <br/>
+                                    <p:commandButton value="Excluir" icon="ui-icon-trash" styleClass="ui-button" 
+                                                     action = "#{clienteListaBean.excluirClientes()}" update="frmListaGemCliente" />
+                                    <p:commandButton value="Alterar" icon="ui-icon-comment" styleClass="ui-button" />
+                                    <br/>
+                                    <p:commandButton value="Excluir" icon="ui-icon-trash" styleClass="ui-button" 
+                                                     action = "#{clienteListaBean.excluirClientes()}" update="frmListaGemCliente" />
+                                    <p:commandButton value="Alterar" icon="ui-icon-comment" styleClass="ui-button" />
+                                    <br/>
+                                    <p:commandButton value="Excluir" icon="ui-icon-trash" styleClass="ui-button" 
+                                                     action = "#{clienteListaBean.excluirClientes()}" update="frmListaGemCliente" />
+                                    <p:commandButton value="Alterar" icon="ui-icon-comment" styleClass="ui-button" />
+                                    <br/>
+                                    <p:commandButton value="Excluir" icon="ui-icon-trash" styleClass="ui-button" 
+                                                     action = "#{clienteListaBean.excluirClientes()}" update="frmListaGemCliente" />
+                                    <p:commandButton value="Alterar" icon="ui-icon-comment" styleClass="ui-button" />
+                                    <br/>
+                                    <p:commandButton value="Excluir" icon="ui-icon-trash" styleClass="ui-button" 
+                                                     action = "#{clienteListaBean.excluirClientes()}" update="frmListaGemCliente" />
+                                    <p:commandButton value="Alterar" icon="ui-icon-comment" styleClass="ui-button" />
+                                    <br/>
+                                    <p:commandButton value="Excluir" icon="ui-icon-trash" styleClass="ui-button" 
+                                                     action = "#{clienteListaBean.excluirClientes()}" update="frmListaGemCliente" />
+                                    <p:commandButton value="Alterar" icon="ui-icon-comment" styleClass="ui-button" />
+                                    <br/>
+                                    <p:commandButton value="Excluir" icon="ui-icon-trash" styleClass="ui-button" 
+                                                     action = "#{clienteListaBean.excluirClientes()}" update="frmListaGemCliente" />
+                                    <p:commandButton value="Alterar" icon="ui-icon-comment" styleClass="ui-button" />
+                                    <br/>
+                                    <p:commandButton value="Excluir" icon="ui-icon-trash" styleClass="ui-button" 
+                                                     action = "#{clienteListaBean.excluirClientes()}" update="frmListaGemCliente" />
+                                    <p:commandButton value="Alterar" icon="ui-icon-comment" styleClass="ui-button" />
+                                    <br/>
+                                </p:column>
+                            </h:dataTable>
+                            <f:facet name="footer">
+                                    <p:row>
+                                        <p:column colspan="8"></p:column>
+                                    </p:row>
+                                </f:facet>
+                        </p:panelGrid>
+                    </h:form>
+                </center>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>

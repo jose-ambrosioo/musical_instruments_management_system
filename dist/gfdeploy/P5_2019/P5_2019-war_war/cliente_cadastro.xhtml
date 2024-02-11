@@ -1,0 +1,111 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Clientes</title>
+    </h:head>
+    <h:body>
+        <p:dialog id="pollDialog" widgetVar="pollDialog" modal="true" showEffect="blind" hideEffect="blind"  
+                  closable="true" draggable="false" resizable="false" >
+                <h:form>
+                    <p:panelGrid columns="2">
+                        <f:facet name="header">Dados de Utilizador</f:facet>
+                        <p:outputLabel value="Nome" />
+                        <p:inputText id="nome" value="#{contaCadastroBean.conta.nome}" validatorMessage="entre com o  nome" required="true" >
+                            <f:validateLength maximum="25"> </f:validateLength>
+                        </p:inputText>
+                       
+
+                        <p:outputLabel value="Senha" />
+                        <p:password value="#{contaCadastroBean.conta.senha}" />
+
+                        <p:outputLabel value="Confirmar senha" />
+                        <p:password value="#{contaCadastroBean.confirmarsenha}" />
+                    </p:panelGrid>
+                    <br />
+                    <p:commandButton  value="Salvar"  action="#{contaCadastroBean.cadastrarConta(4)}"  icon="ui-icon-check" update=":imgGlobal" />   
+                </h:form>
+        </p:dialog>
+
+        <ui:composition template="template.xhtml" >
+            <ui:define name="content">
+                <center>
+                <h:form>
+                    <p:panelGrid columns="2">
+                        <f:facet name="header">
+                            Cadastrar Cliente
+                        </f:facet> 
+                        <p:outputLabel value="Nome Completo" />
+                        <p:inputText id="firstname"  value="#{clienteCadastroBean.pessoa.nome}" required="true"/>
+
+                        <p:outputLabel value="Data de Nascimento" />
+                        <p:calendar value="#{clienteCadastroBean.pessoa.dataNascimento}" mode="popup"  showOn="button" 
+                                    showButtonPanel="true" required="false" locale="pt" navigator="true" effect="fold" pattern="yyyy-MM-dd" >
+                        </p:calendar>
+                        <p:outputLabel value="Sexo" />
+                        <p:selectOneMenu id="idsexo" value="#{clienteCadastroBean.idSexo}">
+                            <f:selectItem itemLabel="selecione..."  itemValue="0" />
+                            <f:selectItems  value="#{sexoBean.findAllOrderByNome()}"  var="item"  itemLabel="#{item.nome}"  itemValue="#{item.pkSexo}" 
+                                            />
+                        </p:selectOneMenu> 
+                        <p:outputLabel value="Telefone" />
+                        <p:inputMask    value="#{clienteCadastroBean.pessoa.numeroTelefone}"  mask="999999999" required="true" />
+
+                        <p:outputLabel value="Email" />
+                        <p:inputText type="email"  required="true" value="#{clienteCadastroBean.pessoa.email}" />
+
+                        <p:outputLabel value="País" />
+                        <p:selectOneMenu id="idpais" value="#{clienteCadastroBean.endereco.fkComuna.fkMunicipio.fkProvincia.fkPais.pkPais}">
+                            <f:selectItem itemLabel="selecione..."  itemValue="0" />
+                            <f:selectItems  value="#{paisBean.findAllOrderedByNome()}"  var="item"  itemLabel="#{item.nome}"  itemValue="#{item.pkPais}" 
+                                            /> 
+                            <p:ajax event="change" process="@this" update="idprovincia" />
+                        </p:selectOneMenu> 
+                        
+                        <p:outputLabel>Província</p:outputLabel>
+                        <p:selectOneMenu id="idprovincia" value="#{clienteCadastroBean.endereco.fkComuna.fkMunicipio.fkProvincia.pkProvincia}">
+                            <f:selectItem itemLabel="selecione..."  itemValue="0" />
+                            <f:selectItems  value="#{provinciaBean.findAllFromPaisOrderedByNome(clienteCadastroBean.endereco.fkComuna.fkMunicipio.fkProvincia.fkPais.pkPais)}"  var="item"  itemLabel="#{item.nome}"  itemValue="#{item.pkProvincia}" 
+                                            /> 
+                             <p:ajax event="change" process="@this" update="idmunicipio" />
+                        </p:selectOneMenu> 
+                        
+                        <p:outputLabel>Município</p:outputLabel>
+                        <p:selectOneMenu id="idmunicipio" value="#{clienteCadastroBean.endereco.fkComuna.fkMunicipio.pkMunicipio}">
+                            <f:selectItem itemLabel="selecione..."  itemValue="0" />
+                            <f:selectItems  value="#{municipioBean.findAllFromProvinciaOrderedByNome(clienteCadastroBean.endereco.fkComuna.fkMunicipio.fkProvincia.pkProvincia)}"  var="item"  itemLabel="#{item.nome}"  itemValue="#{item.pkMunicipio}" 
+                                            /> 
+                           <p:ajax event="change" process="@this" update="idcomuna" /> 
+                        </p:selectOneMenu> 
+                      
+                        <p:outputLabel>Comuna</p:outputLabel>
+                        <p:selectOneMenu id="idcomuna" value="#{clienteCadastroBean.endereco.fkComuna.pkComuna}">
+                            <f:selectItem itemLabel="selecione..."  itemValue="0" />
+                            <f:selectItems  value="#{comunaBean.findAllFromMunicipioOrderedByNome(clienteCadastroBean.endereco.fkComuna.fkMunicipio.pkMunicipio)}"  var="item"  itemLabel="#{item.nome}"  itemValue="#{item.pkComuna}" 
+                                            /> 
+                        </p:selectOneMenu> 
+
+                        <p:outputLabel value="Rua" />
+                        <p:inputText required="true" value="#{clienteCadastroBean.endereco.rua}" />
+
+                        <p:outputLabel value="Número da Casa" />
+                        <p:inputText type="number"   value="#{clienteCadastroBean.endereco.numeroCasa}" /> 
+                        <f:facet name="footer" >
+                            <center>
+                                <p:commandButton  value="Salvar"  action="#{clienteCadastroBean.cadastrar()}" onclick="PF('pollDialog').show()"  icon="ui-icon-check" />   
+                                <p:commandButton  value="Cancelar"  action="#" icon="ui-icon-close" /> 
+                            </center>
+                        </f:facet>
+                    </p:panelGrid> 
+
+                </h:form>
+</center>
+            </ui:define>
+        </ui:composition>
+         
+    </h:body>
+</html>

@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Produtos</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="template.xhtml">
+            <ui:define name="content">
+                <center>
+                    <h:form id="frmListagemProdutos">
+                        <p:panelGrid id="panelListagem" columns="7">
+                            <f:facet name="header">
+                                <p:row>
+                                    <p:column colspan="5">Lista de Produtos (Definir Quantidade Máxima)</p:column>
+                                </p:row>
+                            </f:facet>
+                            <h:dataTable id="tblProdutos"  value ="#{produtofinirQuantidadeMaximaStockBean.listaProdutos}"   var="item" border ="1" 
+                                         cellspacing="2"  >
+
+                                <p:column headerText="Model">
+                                    <f:facet name="header">Nome</f:facet>
+                                    <h:outputText value="#{item.imagem}" />   
+                                </p:column>
+                                <p:column>
+                                    <f:facet name="header">Categoria 3</f:facet>
+                                    <h:outputText value="#{item.fkCategoria3.nome}" />   
+                                </p:column>
+                                <p:column headerText="Quantidade maxima">
+                                    <f:facet name="header">Quantidade Máxima</f:facet>
+                                    <h:outputText value="#{item.fkCategoria3.quantidadeMaxima}" />   
+                                </p:column> 
+                                <p:column headerText="Opcoes" >
+                                    <f:facet name="header" >Operação</f:facet>
+                                    <p:commandButton value="Definir" icon="ui-icon-check" styleClass="ui-button"  onclick="PF('dgl_stock_definir_quantidade_maxima_produto').show();" 
+                                                     actionListener="#{produtofinirQuantidadeMaximaStockBean.preparParaDefinir()}"          />
+                                                   <!-- actionListener="#{produtofinirQuantidadeMaximaStockBean.preparParaDefinir()}"           update=":fmDefinirQuantidadeMaxima :imgGlobal" /> -->
+                                
+                                </p:column>
+                            </h:dataTable>
+                            
+                        </p:panelGrid>
+                    </h:form>
+                </center>
+            </ui:define>
+        </ui:composition>
+        <p:dialog widgetVar="dgl_stock_definir_quantidade_maxima_produto" closable="true" draggable="false" resizable="false"
+                  modal="true" appendTo="@(body)" header="Definir quantidade maxima" showEffect="blind" hideEffect="blind">
+            <h:form id="fmDefinirQuantidadeMaxima" >
+                <p:panelGrid id="panelDefinirQuantidadeMaxima" columns="2">
+
+                    <p:outputLabel value="Nome  : " />  
+                    <p:inputText value="#{produtofinirQuantidadeMaximaStockBean.produto.fkCategoria3.nome}"/>
+
+                    <p:outputLabel value="Quantidade Maxima : " />  
+                    <p:inputText value="#{produtofinirQuantidadeMaximaStockBean.produto.fkCategoria3.quantidadeMaxima}" />
+                </p:panelGrid>
+                <br />
+                <p:commandButton value="Definir"  oncomplete="PF('dgl_stock_definir_quantidade_maxima_produto').hide();"
+                                 actionListener="#{produtofinirQuantidadeMaximaStockBean.definir()}"    update=":frmListagemProdutos:tblProdutos :imgGlobal" />
+                <p:commandButton value="Cancelar" onclick="PF('dgl_stock_definir_quantidade_maxima_produto').hide();"/>
+            </h:form>
+        </p:dialog>
+    </h:body>
+</html>

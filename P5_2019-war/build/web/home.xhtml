@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Home</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="template.xhtml">
+            <ui:define name="content">
+                <h:form id="currentUserForm">
+                    <p:notificationBar position="top" effect="slide" widgetVar="bar" >
+                        <h:outputText value="Toggle SucessFully" />
+                        
+                        
+                    </p:notificationBar>
+                     
+                </h:form>
+                <div id="logo" >
+                    <h2 class="text-center" style="margin-top: 8%;"><img src="assets/img/icons/Guitar-icon.png" width="30%" height="50%" alt="Logo"/></h2>
+
+                    <!--<h2 class="text-center" style="margin-top: 10px; color: #4f5d73; font-family: Ubuntu-Bold;">Lojas de Instrumentos Musicais</h2>-->
+                </div>
+            </ui:define>       
+        </ui:composition>
+    </h:body>
+</html>

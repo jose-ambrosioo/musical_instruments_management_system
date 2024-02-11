@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Montra</title>
+    </h:head>
+    <h:body>
+      <ui:composition template="template.xhtml">
+            <ui:define name="content">
+                <center>
+                    <h:form id="frmListagemProduto">
+                        <p:panelGrid id="panelListagem" columns="7" >
+                            <f:facet name="header">
+                                <p:row>
+                                    <p:column colspan="8">Produtos na Montra</p:column>
+                                </p:row>
+                            </f:facet>
+
+                            <h:dataTable id="tblPrecosProduto"  value ="#{montraVisualizarBean.listaMontras}"   var="item" border ="1"
+                                         cellspacing="2"  rows="10" >
+                           
+                                <p:column headerText="Model" sortBy="#{item.fkProduto.imagem}" >
+                                    Nome:  <h:outputText value="#{item.fkProduto.imagem}" />
+                                    <br />
+                                    Preco:  <h:outputText value="#{precoBean.getValorProduto(item.fkProduto)}" />
+                                    <br />
+                                    <p:commandButton value="Comprar" icon="ui-icon-check" onclick="PF('dgl_quantidade_cliente').show();" 
+                                                     actionListener="#{montraVisualizarBean.consultarProdutoStock()}" rendered="#{permissaoBean.validar('FP')}"  />
+                                                    <!--actionListener="#{montraVisualizarBean.consultarProdutoStock()}" rendered="#{permissaoBean.validar('FP')}"  update=":frmDefinirQuantidadeParaCliente :imgGlobal"  />-->
+                                    <p:commandButton value="Excluir" icon="ui-icon-trash" actionListener="#{montraVisualizarBean.excluir()}" rendered="#{permissaoBean.validar('FM02')}" update="frmListagemProduto :imgGlobal" />
+                                </p:column> 
+                            </h:dataTable>
+                        </p:panelGrid>
+                    </h:form>
+                </center>
+            </ui:define>
+        </ui:composition>
+        <p:dialog widgetVar="dgl_quantidade_cliente" closable="true" draggable="false" resizable="false"
+                  modal="true" appendTo="@(body)" header="Definir quantidade para o cliente" showEffect="blind" hideEffect="blind">
+            <h:form id="frmDefinirQuantidadeParaCliente" >
+                <p:panelGrid id="panelDefinirQuantidadeMaxima" columns="2">
+
+                    <p:outputLabel value="Id Stock: " /> 
+                    <h:outputText value="#{montraVisualizarBean.stock.pkStock}" />
+
+                    <p:outputLabel value="Nome  : " />  
+                    <h:outputText value="#{montraVisualizarBean.stock.fkProduto.fkCategoria3.nome}"/>
+
+                    <p:outputLabel value="Quantidade Disponivel : " />  
+                    <h:outputText value="#{montraVisualizarBean.stock.quantidadeDisponivel}" />
+
+                    <p:outputLabel value="Quantidade solicitada : " />  
+                    <p:inputText value="#{montraVisualizarBean.quantidadeSolicitada}" />
+                </p:panelGrid>
+                <br />
+                <p:commandButton value="Ok"  oncomplete="PF('dgl_quantidade_cliente').hide();"
+                                 action="#{carrinhoCompraBean.adicionarItensCarinho(montraVisualizarBean.stock.fkProduto, montraVisualizarBean.quantidadeSolicitada)}"     update=":imgGlobal"  />
+                <p:commandButton value="Cancelar" onclick="PF('dgl_quantidade_cliente').hide();"  />
+            </h:form>
+        </p:dialog>
+    </h:body>
+</html>

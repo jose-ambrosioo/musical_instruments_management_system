@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Produtos</title>
+    </h:head>
+    <h:body>
+      <ui:composition template="template.xhtml">
+            <ui:define name="content">
+                <center>
+                    <h:form id="frmListagemProdutos">
+                        <p:panelGrid id="panelListagem" columns="7" >
+                            <f:facet name="header">
+                                <p:row>
+                                    <p:column colspan="8">Lista de Produtos</p:column>
+                                </p:row>
+                            </f:facet>
+                            
+                            <h:dataTable id="tblProdutos"  value =""   var="item" border ="1"
+                                         cellspacing="2" >
+
+                                <p:column headerText="Model">
+                                    <f:facet name="header">Nome</f:facet>
+                                    <h:outputText value="Guitarra Acústica Fender FA-115, 6 Cordas"/>
+                                    <br/>
+                                    <h:outputText value="Guitarra Acústica Yamaha FD01S, 6 Cordas"/>
+                                    <br/>
+                                    <h:outputText value="Baixo Hofner IGNITIONSB, 4 Cordas"/>
+                                    <br/>
+                                    <h:outputText value="Baixo Fender '50s, 4 Cordas"/>
+                                    <br/>
+                                    <h:outputText value="Bateria para Crianças Iniciantes, Best Choice Products"/>
+                                    <br/>
+                                    <h:outputText value="Bateria Junior, Mendini by Cecilio"/>
+                                    <br/>
+                                    <h:outputText value="Saxofone Profissional Alto Eb, Glory"/>
+                                    <br/>
+                                    <h:outputText value="Saxofone Alto Eb com Afinador, Mendini by Cecilio"/>
+                                    <br/>
+                                    <h:outputText value="Flauta Doce Soprano Germánica em Dó, Bioamy"/>
+                                    <br/>
+                                    <h:outputText value="Flauta Transversal Yamaha yfl-222 Intermediário"/>
+                                    <br/>
+                                    <h:outputText value="Violino de Madeira com Cordas D'Addario, Cecilio CVN-300"/>
+                                    <br/>
+                                    <h:outputText value="Violino de Madeira Maciça com Cordas Extras, Mendini 4/4 MV300"/>
+                                    <br/>
+                                </p:column>
+                                <p:column headerText="Model">
+                                    <f:facet name="header">Categoria 3</f:facet>
+                                    <h:outputText value="Guitarra"/>
+                                    <br/>
+                                    <h:outputText value="Guitarra"/>
+                                    <br/>
+                                    <h:outputText value="Baixo"/>
+                                    <br/>
+                                    <h:outputText value="Baixo"/>
+                                    <br/>
+                                    <h:outputText value="Bateria"/>
+                                    <br/>
+                                    <h:outputText value="Bateria"/>
+                                    <br/>
+                                    <h:outputText value="Saxofone"/>
+                                    <br/>
+                                    <h:outputText value="Saxofone"/>
+                                    <br/>
+                                    <h:outputText value="Flauta"/>
+                                    <br/>
+                                    <h:outputText value="Flauta"/>
+                                    <br/>
+                                    <h:outputText value="Violino"/>
+                                    <br/>
+                                    <h:outputText value="Violino"/>
+                                    <br/>
+                                </p:column> 
+                            </h:dataTable>
+                        </p:panelGrid>
+                    </h:form>
+                </center>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>

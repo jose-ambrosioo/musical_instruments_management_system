@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="template.xhtml">
+            <ui:define name="content">
+                <center>
+                    <h:form id="frmListagemProdutos">
+                        <p:panelGrid id="panelListagem" >
+
+                            <h:dataTable id="tblProdutos"  value ="#{vendaBean}"   var="item" border ="1"
+                                         cellspacing="2"  rows="10" >
+                                <f:facet name="header">
+                                    <p:row>
+                                        <p:column colspan="8">Lista de Produtos</p:column>
+                                    </p:row>
+                                </f:facet>
+                                <p:column headerText="Model" sortBy="#{item.produtos.descricao}"  filterBy="#{item.produtos.descricao}">
+                                    <f:facet name="header">Nome do produto</f:facet>
+                                    <h:outputText value="#{item.produtos.descricao}" />   
+                                </p:column> 
+                                <p:column headerText="Quantidade">
+                                    <f:facet name="header">Quantidade</f:facet>
+                                    <h:outputText value="#{item.quantidade}" />   
+                                </p:column> 
+                                <p:column headerText="Quantidade">
+                                     <f:facet name="header" >Sub Total</f:facet>
+                                     <h:outputText value="#{item.subtotal}" />   
+                                </p:column> 
+                                <p:column headerText="sub-total" >
+                                    <p:commandButton value="Definir" icon="ui-icon-trash" styleClass="ui-button" />
+                                </p:column>
+
+                                <f:facet name="footer">
+                                    <p:row>
+                                        <p:column colspan="8">Lista de Produtos</p:column>
+                                    </p:row>
+                                </f:facet>
+                            </h:dataTable>
+                        </p:panelGrid>
+                    </h:form>
+                </center>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

@@ -1,0 +1,113 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Carrinho</title>
+    </h:head>
+    <h:body>
+        
+        <ui:composition template="template.xhtml">
+            <ui:define name="content">
+                <center>
+                    <h:form id="frmListagemProdutos">
+                        
+                        <p:panelGrid id="panelListagem" >
+                            <f:facet name="header">
+                                <p:row>
+                                    <p:column colspan="8">Produtos Existentes no Carrinho</p:column>
+                                </p:row>
+                            </f:facet>
+                            <h:dataTable id="tblProdutos"  value ="#{carrinhoCompraBean.itens_carrinho}"   var="item" border ="1"
+                                         cellspacing="2"  >
+
+                                <p:column headerText="Model">
+                                    <f:facet name="header">Nome do produto</f:facet>
+                                    <h:outputText value="#{item.produtos.fkCategoria3.nome}" />   
+                                </p:column> 
+                                <p:column headerText="Model">
+                                    <f:facet name="header">Categoria 3</f:facet>
+                                    <h:outputText value="#{item.produtos.fkCategoria3.fkCategoria2.nome}" />   
+                                </p:column> 
+                                <p:column>
+                                    <f:facet name="header">Quantidade</f:facet>
+                                    <h:outputText value="#{item.quantidade}" />   
+                                </p:column> 
+                                <p:column>
+                                    <f:facet name="header" >Sub Total</f:facet>
+                                    <h:outputText value="#{item.subtotal}" />  
+                                </p:column> 
+                                <p:column headerText="sub-total" >
+                                     <p:commandButton value="Alterar Quantidade" onclick="PF('dgl_quantidade_cliente').show();" 
+                                                     actionListener="#{carrinhoCompraBean.prepararAlterarQuantidade()}"  />
+                                    
+                                    <p:commandButton value="Excluir"  actionListener="#{carrinhoCompraBean.excluir()}"   icon="ui-icon-trash" styleClass="ui-button" update=":frmListagemProdutos :formVenda" />
+                                </p:column>
+
+                                <f:facet name="footer">
+                                    <p:row>
+                                        <p:column colspan="8">Lista de Produtos</p:column>
+                                    </p:row>
+                                </f:facet>
+                            </h:dataTable>
+                        </p:panelGrid>
+                    </h:form>
+                    <h:form id = "formVenda">
+                        <br /> <br /> <br /> <br />
+                        <p:panelGrid id="panelListagem" columns="2" >
+                            <f:facet name="header" >  Sessão da Venda </f:facet> 
+                            <p:outputLabel value="Valor Total" />
+                            <h:outputText value="#{vendaEfetuarBean.totalVenda}" /> 
+
+                            <p:outputLabel value="Forma de pagamento" />
+                            <p:selectOneMenu id="idFormaPagmanto" value="#{vendaEfetuarBean.formaPagamento.pkFormaPagamento}">
+                                <f:selectItem itemLabel="selecione..."  itemValue="0" />
+                                <f:selectItems  value="#{formaPagamentoBean.findAll()}"  var="item"  itemLabel="#{item.descricao}"  itemValue="#{item.pkFormaPagamento}" 
+                                                />
+                            </p:selectOneMenu> 
+
+                            <f:facet name="footer" >
+                                <center>
+                                    <p:commandButton value="Vender"  actionListener="#{vendaEfetuarBean.vender()}"    icon="ui-icon-check" styleClass="ui-button" 
+                                                      update="formVenda,frmListagemProdutos" />
+                                    <p:commandButton value="Cancelar venda" actionListener="#{carrinhoCompraBean.cancelar()}"  icon="ui-icon-trash" styleClass="ui-button"
+                                                     update="formVenda,frmListagemProdutos" />
+                                </center>
+                            </f:facet>    
+                        </p:panelGrid>
+                    </h:form>
+                </center>
+            </ui:define>
+        </ui:composition>
+        
+         <p:dialog widgetVar="dgl_quantidade_cliente" closable="true" draggable="false" resizable="false"
+                  modal="true" appendTo="@(body)" header="Alterar a quantidade do  produto" showEffect="blind" hideEffect="blind">
+            <h:form id="frmDefinirQuantidadeParaCliente" >
+                <p:panelGrid id="panelDefinirQuantidadeMaxima" columns="2">
+
+                    <p:outputLabel value="Id Stock: " /> 
+                    <h:outputText value="#{carrinhoCompraBean.stock.pkStock}" />
+
+                    <p:outputLabel value="Nome  : " />  
+                    <h:outputText value="#{carrinhoCompraBean.stock.fkProduto.fkCategoria3.nome}"/>
+
+                    <p:outputLabel value="Quantidade Disponivel : " />  
+                    <h:outputText value="#{carrinhoCompraBean.stock.quantidadeDisponivel}" />
+
+                    <p:outputLabel value="Quantidade solicitada : " />  
+                    <p:inputText value="#{carrinhoCompraBean.quantidadeSolicitada}" />
+                </p:panelGrid>
+                <br />
+                    
+                <p:commandButton value="Ok"  oncomplete="PF('dgl_quantidade_cliente').hide();"
+                                 action="#{carrinhoCompraBean.alterarQuantidade()}"     update=":formVenda :frmListagemProdutos :imgGlobal"  />
+                <p:commandButton value="Cancelar" onclick="PF('dgl_quantidade_cliente').hide();"  />
+            </h:form>
+        </p:dialog>
+    </h:body>
+</html>
+

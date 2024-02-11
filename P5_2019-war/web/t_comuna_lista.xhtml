@@ -1,0 +1,127 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Comunas</title>
+    </h:head>
+    <h:body>
+      <ui:composition template="template.xhtml">
+            <ui:define name="content">
+                <center>
+                    <h:form id="frmListagemProdutos">
+                        <p:panelGrid id="panelListagem" columns="7" >
+                            <f:facet name="header">
+                                <p:row>
+                                    <p:column colspan="8">Lista de Comunas</p:column>
+                                </p:row>
+                            </f:facet>
+                            
+                            <h:dataTable id="tblProdutos"  value =""   var="item" border ="1"
+                                         cellspacing="2" >
+
+                                <p:column headerText="Model">
+                                    <f:facet name="header">Nome</f:facet>
+                                    <h:outputText value="Golfe"/>
+                                    <br/>
+                                    <h:outputText value="Palanca"/>
+                                    <br/>
+                                    <h:outputText value="Kilamba"/>
+                                    <br/>
+                                    <h:outputText value="Morro dos Veados"/>
+                                    <br/>
+                                    <h:outputText value="Cacuaco"/>
+                                    <br/>
+                                    <h:outputText value="Kikolo"/>
+                                    <br/>
+                                    <h:outputText value="Cazenga"/>
+                                    <br/>
+                                    <h:outputText value="Tala Hadi"/>
+                                    <br/>
+                                    <h:outputText value="Bom Jesus"/>
+                                    <br/>
+                                    <h:outputText value="Catete"/>
+                                    <br/>
+                                    <h:outputText value="Cabo Ledo"/>
+                                    <br/>
+                                    <h:outputText value="Muxima"/>
+                                    <br/>
+                                    <h:outputText value="Benfica"/>
+                                    <br/>
+                                    <h:outputText value="Talatona"/>
+                                    <br/>
+                                    <h:outputText value="Kikuxi"/>
+                                    <br/>
+                                    <h:outputText value="Viana"/>
+                                    <br/>
+                                    <h:outputText value="Lobito"/>
+                                    <br/>
+                                    <h:outputText value="Belize"/>
+                                    <br/>
+                                    <h:outputText value="Caála"/>
+                                    <br/>
+                                    <h:outputText value="Lubango"/>
+                                    <br/>
+                                    <h:outputText value="Kalandula"/>
+                                    <br/>
+                                    <h:outputText value="Soyo"/>
+                                    <br/>
+                                </p:column>
+                                <p:column headerText="Model">
+                                    <f:facet name="header">Município</f:facet>
+                                    <h:outputText value="Kilamba Kiaxi"/>
+                                    <br/>
+                                    <h:outputText value="Kilamba Kiaxi"/>
+                                    <br/>
+                                    <h:outputText value="Belas"/>
+                                    <br/>
+                                    <h:outputText value="Belas"/>
+                                    <br/>
+                                    <h:outputText value="Cacuaco"/>
+                                    <br/>
+                                    <h:outputText value="Cacuaco"/>
+                                    <br/>
+                                    <h:outputText value="Cazenga"/>
+                                    <br/>
+                                    <h:outputText value="Cazenga"/>
+                                    <br/>
+                                    <h:outputText value="Icolo e Bengo"/>
+                                    <br/>
+                                    <h:outputText value="Icolo e Bengo"/>
+                                    <br/>
+                                    <h:outputText value="Quiçama"/>
+                                    <br/>
+                                    <h:outputText value="Quiçama"/>
+                                    <br/>
+                                    <h:outputText value="Talatona"/>
+                                    <br/>
+                                    <h:outputText value="Talatona"/>
+                                    <br/>
+                                    <h:outputText value="Viana"/>
+                                    <br/>
+                                    <h:outputText value="Viana"/>
+                                    <br/>
+                                    <h:outputText value="Lobito"/>
+                                    <br/>
+                                    <h:outputText value="Belize"/>
+                                    <br/>
+                                    <h:outputText value="Caála"/>
+                                    <br/>
+                                    <h:outputText value="Lubango"/>
+                                    <br/>
+                                    <h:outputText value="Calandula"/>
+                                    <br/>
+                                    <h:outputText value="Soyo"/>
+                                    <br/>
+                                </p:column> 
+                            </h:dataTable>
+                        </p:panelGrid>
+                    </h:form>
+                </center>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>

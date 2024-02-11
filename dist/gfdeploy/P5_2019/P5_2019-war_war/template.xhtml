@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Facelet Title</title>
+        <link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png" />
+
+        <!-- CSS Files -->
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="assets/css/material-kit.css" rel="stylesheet"/>
+        <!-- CSS Just for demo purpose, don't include it in your project -->
+        <link href="assets/css/demo.css" rel="stylesheet" />
+    </h:head>
+    <h:body>
+        <p:growl id="imgGlobal" life="3000" />
+       <p:layout fullPage="true">
+            <p:layoutUnit position="north">
+             
+            </p:layoutUnit>
+            <p:layoutUnit position="center">
+                <br />
+                     <ui:insert name="content" />
+            </p:layoutUnit>
+            <p:layoutUnit position="south">
+                <center>
+                    Copyright © 2019 UCAN. Todos Direitos Reservados.
+                </center>
+            </p:layoutUnit>
+            <div>
+                <ui:insert name="header">
+                    <ui:include src="menu.xhtml"></ui:include>
+                </ui:insert> 
+            </div>
+           
+        </p:layout>
+    </h:body>
+</html>

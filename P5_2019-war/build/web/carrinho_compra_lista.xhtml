@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Carrinho</title>
+    </h:head>
+    <h:body>
+      <ui:composition template="template.xhtml">
+            <ui:define name="content">
+                <center>
+                    <h:form id="frmListagemProdutos">
+                        <p:panelGrid id="panelListagem" columns="7" >
+                            <f:facet name="header">
+                                <p:row>
+                                    <p:column colspan="8">Produtos Existentes no Carrinho</p:column>
+                                </p:row>
+                            </f:facet>
+                            
+                            <h:dataTable id="tblProdutos"  value =""   var="item" border ="1"
+                                         cellspacing="2" >
+
+                                <p:column headerText="Model">
+                                    <f:facet name="header">Nome</f:facet>
+  
+                                </p:column>
+                                <p:column headerText="Model">
+                                    <f:facet name="header">Categoria 3</f:facet>
+  
+                                </p:column> 
+                                <p:column headerText="Quantidade disponivel">
+                                    <f:facet name="header">Quantidade</f:facet>
+  
+                                </p:column>
+                                <p:column headerText="Preco">
+                                    <f:facet name="header">Subtotal</f:facet>
+  
+                                </p:column>
+                                <p:column headerText="Opcoes" >
+                                    <f:facet name="header" >Operação</f:facet>
+                                </p:column>
+
+                            </h:dataTable>
+                        </p:panelGrid>
+                    </h:form>
+                    <h:form id = "formVenda">
+                        <br /> <br /> <br /> <br />
+                        <p:panelGrid id="panelListagem" columns="2" >
+                            <f:facet name="header" >  Sessão da Venda </f:facet> 
+                            <p:outputLabel value="Valor Total" />
+                            <h:outputText value="" /> 
+
+                            <p:outputLabel value="Forma de Pagamento" />
+                            <p:selectOneMenu id="idFormaPagmanto" value="">
+                                <f:selectItem itemLabel="selecione..."  itemValue="0" />
+                                <f:selectItem itemLabel="Visa"  itemValue="1" />
+                                <f:selectItem itemLabel="Mastercard"  itemValue="2" />
+                                <f:selectItem itemLabel="Platinum"  itemValue="3" />
+                            </p:selectOneMenu> 
+
+                            <f:facet name="footer" >
+                                <center>
+                                    <p:commandButton value="Vender" icon="ui-icon-check" styleClass="ui-button" 
+                                                      update="formVenda,frmListagemProdutos" />
+                                    <p:commandButton value="Cancelar venda" icon="ui-icon-trash" styleClass="ui-button"
+                                                     update="formVenda,frmListagemProdutos" />
+                                </center>
+                            </f:facet>    
+                        </p:panelGrid>
+                    </h:form>
+                </center>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>

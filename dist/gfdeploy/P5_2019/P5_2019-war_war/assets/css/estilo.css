@@ -1,0 +1,200 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Oct 30, 2016, 8:17:47 PM
+    Author     : julio
+*/
+
+@font-face {
+  font-family: Ubuntu-Regular;
+  src: url('../fonts/ubuntu/Ubuntu-Regular.ttf'); 
+}
+
+@font-face {
+  font-family: Ubuntu-Bold;
+  src: url('../fonts/ubuntu/Ubuntu-Bold.ttf'); 
+}
+
+h:body
+{
+    font-family: Ubuntu-Regular;
+    // color: #A9A9A9; #FFFF;
+    // background-color: #4f5d73;
+}
+
+form#formulario
+{
+  position:relative;
+  width: 20%;
+  height: 50%;
+  margin-right: 30%;
+  margin-left: 40%;
+  padding-top: 3%;
+  padding-bottom: 5%;
+  padding-left: 3%;
+  box-shadow: 1px 2px 1px  1px #49afcd;
+}
+
+form fieldset
+{
+    /*background-color: silver;*/
+}
+
+.tituloDePagina
+{
+   text-align: center;
+   font-family: Ubuntu-Bold, lucida Fax, sans-serif;
+   font-size: 30px;
+   
+}
+
+.submenu
+{
+    
+}
+
+#menu0 {
+  min-height: 40px;
+  padding-right: 20px;
+  padding-left: 20px;
+  background-color:rgba(0,0,0,0.7);
+  width: 200px;
+  z-index: 3;
+  text-align: justify;
+  text-transform: uppercase;
+  padding-bottom: 20%;
+  opacity: 0;
+}
+
+#menu1 {
+  min-height: 40px;
+  padding-right: 20px;
+  padding-left: 20px;
+  background-color:rgba(0,0,0,0.7);
+  width: 200px;
+ 
+  text-align: justify;
+  text-transform: uppercase;
+  padding-bottom: 20%;
+  opacity: 0;
+}
+
+#menu2 {
+  min-height: 40px;
+  padding-right: 20px;
+  padding-left: 20px;
+  background-color:rgba(0,0,0,0.7);
+  width: 200px;
+ 
+  text-align: justify;
+  text-transform: uppercase;
+  padding-bottom: 20%;
+  opacity: 0;
+}
+
+.nav-link 
+{
+   color:white;
+   
+   padding-bottom: 5%;
+   padding-left: 5%;
+   padding-right: 10%;
+   
+}
+
+.nav-link:hover 
+{
+    text-decoration: none;
+    
+}
+
+.listas
+{
+    margin-bottom: 5%; 
+    border-bottom-color: 5px solid red;
+    /*background-color: red;*/
+    padding-bottom: 5%;
+}
+
+#menu3 {
+  min-height: 40px;
+  padding-right: 20px;
+  padding-left: 20px;
+  background-color:rgba(0,0,0,0.7);
+  width: 200px;
+ 
+  text-align: justify;
+  text-transform: uppercase;
+  padding-bottom: 20%;
+  opacity: 0;
+}
+
+#menu4 {
+  min-height: 40px;
+ 
+  padding-left: 5px;
+  width: 170%;
+  background-color:rgba(0,0,0,0.7);
+  text-align: justify;
+  text-transform: uppercase;
+  padding-bottom: 20%;
+  opacity: 0;
+}
+
+    
+#menu5 {
+  min-height: 40px;
+  padding-right: 20px;
+  padding-left: 20px;
+  background-color:rgba(0,0,0,0.7);
+  width: 200px;
+  
+  text-align: justify;
+  text-transform: uppercase;
+  padding-bottom: 20%;
+  opacity: 0;
+}
+
+#menu6 {
+  min-height: 40px;
+  background-color:rgba(0,0,0,0.7);
+  padding-left: 5px;
+  width: 170%;
+ 
+  text-align: justify;
+  text-transform: uppercase;
+  padding-bottom: 20%;
+  opacity: 0;
+}
+
+#menu7 {
+  min-height: 40px;
+  padding-right: 20px;
+  padding-left: 20px;
+  background-color:rgba(0,0,0,0.7);
+  width: 200px;
+ 
+  text-align: justify;
+  text-transform: uppercase;
+  padding-bottom: 20%;
+  opacity: 0;
+}
+
+#menuc {
+  min-height: 40px;
+  padding-right: 20px;
+  padding-left: 20px;
+  background-color:rgba(0,0,0,0.7);
+  width: 200px;
+  z-index: 3;
+  text-align: justify;
+  text-transform: uppercase;
+  padding-bottom: 20%;
+  opacity: 0;
+}
+
+
+            
